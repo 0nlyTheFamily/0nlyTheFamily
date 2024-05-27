@@ -22,58 +22,35 @@ module.exports = {
       
         {
           name: '▶️  Basic',
-          value: '`avatar`, `owner`, `support`, `invite`, `userinfo`',
+          value: '`avatar`, `invite`, `userinfo`',
           inline: true,
         },
        
         {
           name: '▶️  Music',
-          value: '`play`, `stop`, `seek`,`volume`,`pause`,`resume`,`skip`,`remove`,`shuffle`,`queue`',
-          inline: true,
-        },
-      
-        {
-          name: '▶️  Fun',
-          value: ' `ascii`, `joke`, `roll`',
-          inline: true,
-        },
-      
-        {
-          name: '▶️  Image',
-          value: '`cat`, `dog`',
-          inline: true,
-        },
-      
-        {
-          name: '▶️  Anime',
-          value: '`<prefix>animecommands for more info`',
+          value: '`play`, `stop`, `skip`',
           inline: true,
         },
      
         {
           name: '▶️  Utility',
-          value: '`kick`, `ban`, `serverinfo`,`userinfo`, `clear`',
+          value: '`kick`, `ban`, `serverinfo`, `clear`',
           inline: true,
         }
       )
       .setThumbnail(botUser.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-      .setImage(`https://cdn.discordapp.com/attachments/1113800537402527903/1236803979996958740/11.png?ex=6641e8b7&is=66409737&hm=96f69ba8bcde4ca44bf8713e22001e0bafad0335cfd1f57c439a34b4762f0e03&`);
+      .setImage(`https://cdn.discordapp.com/attachments/1228850236307279953/1228869425415983174/IMG_2299.png?ex=665529d6&is=6653d856&hm=900f35a9dc76313cd7d98ab15ab697258d728bd08fd0e3abce03364106e53e4a&&`);
 
     const button1 = new ButtonBuilder()
-      .setLabel('YouTube')
-      .setURL('https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A')
+      .setLabel('OTF')
+      .setURL('https://discord.gg/3mJYtyx786')
       .setStyle(ButtonStyle.Link);
 
     const button2 = new ButtonBuilder()
       .setLabel('Discord')
-      .setURL('https://discord.gg/xQF9f9yUEM')
+      .setURL('https://discord.gg/3mJYtyx786')
       .setStyle(ButtonStyle.Link);
 
-    const button3 = new ButtonBuilder()
-      .setLabel('Code')
-      .setURL('https://github.com/GlaceYT')
-      .setStyle(ButtonStyle.Link);
-      
     const row = new ActionRowBuilder()
       .addComponents(button1, button2, button3);
     
