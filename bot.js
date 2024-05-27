@@ -292,7 +292,7 @@ client.riffy.on("trackStart", async (player, track) => {
 
 client.riffy.on("queueEnd", async (player) => {
     const channel = client.channels.cache.get(player.textChannel);
-    const autoplay = false;
+    const autoplay = true;
     if (autoplay) {
         player.autoplay(player)
     } else {
