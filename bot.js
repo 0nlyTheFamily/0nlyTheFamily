@@ -9,7 +9,7 @@ const nodes = [
         host: "lava-v4.ajieblogs.eu.org",
         password: "https://dsc.gg/ajidevserver",
         port: 443,
-        secure: false
+        secure: true
     },
 ];
 
@@ -60,7 +60,7 @@ client.on("messageCreate", async (message) => {
                 .setDescription(`**Playlist Name : **${playlistInfo.name} \n**Tracks : **${tracks.length}`)
                 .setColor('#14bdff')
                 .setFooter({ text: 'Use queue command for more Information' });
-            message ({ embeds: [embed] });
+            message({ embeds: [embed] });
             if (!player.playing && !player.paused) return player.play();
   
         } else if (loadType === 'search' || loadType === 'track') {
@@ -77,7 +77,7 @@ client.on("messageCreate", async (message) => {
                 .setDescription(`**${track.info.title} **has been queued up and is ready to play!`)
                 .setColor('#14bdff')
                 .setFooter({ text: ' gorani zyat kra' });
-            message ({ embeds: [embed] });
+            message({ embeds: [embed] });
 
             if (!player.playing && !player.paused) return player.play();
         } else {
@@ -110,7 +110,7 @@ client.on("messageCreate", async (message) => {
         .setDescription('**Halt the beats! Music taking a break..**')
         .setColor('#2b71ec');
 
-        message ({ embeds: [embed] });
+        message({ embeds: [embed] });
     } else if (command === "resume") {
         const player = client.riffy.players.get(message.guild.id); 
         if (!player) return message.channel.send("No player available.");
@@ -155,7 +155,7 @@ client.on("messageCreate", async (message) => {
                  url: 'https://discord.gg/3mJYtyx786'
                })
             .setDescription(`**Removed track:** ${removedTrack.info.title}`);  
-            message ({ embeds: [embed] });
+            message({ embeds: [embed] });
 
     } else if (command === "queue") {
         const player = client.riffy.players.get(message.guild.id); 
@@ -189,7 +189,23 @@ client.on("messageCreate", async (message) => {
           url: 'https://discord.gg/3mJYtyx786'
         })
           .setDescription('**datwani la yak tada 2 gorani leday enja ?skip **');
-        
+       
+        message.reply({ embeds: [embed] });
+    } else if (command === "shuffle") {
+        const player = client.riffy.players.get(message.guild.id); 
+        if (!player) return message.channel.send("No player available.");
+
+        player.queue.shuffle();
+        const embed = new EmbedBuilder()
+        .setColor('#188dcc')
+        .setAuthor({
+          name: 'Shuffled Queue!',
+          iconURL: 'https://cdn.discordapp.com/attachments/1230824451990622299/1236794583732457473/7828-verify-ak.gif?ex=6641dff7&is=66408e77&hm=e4d3f67ff76adbb3b7ee32fa57a24b7ae4c5acfe9380598e2f7e1a6c8ab6244c&',
+          url: 'https://discord.gg/xQF9f9yUEM'
+        })
+          .setDescription('**Let\'s change the rhythm with a random selection!**');
+
+        message.reply({ embeds: [embed] }); 
         message({ embeds: [embed] });
     } else if (command === "stop") {
         const player = client.riffy.players.get(message.guild.id); 
