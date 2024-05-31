@@ -189,7 +189,6 @@ client.on("messageCreate", async (message) => {
           url: 'https://discord.gg/3mJYtyx786'
         })
           .setDescription('**datwani la yak tada 2 gorani leday enja ?skip **');
-       
         message.reply({ embeds: [embed] });
     } else if (command === "shuffle") {
         const player = client.riffy.players.get(message.guild.id); 
